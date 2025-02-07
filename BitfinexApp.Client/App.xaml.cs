@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace WpfApp
+namespace BitfinexApp.Client
 {
     /// <summary>
     /// Interaction logic for App.xaml
