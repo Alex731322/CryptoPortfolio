@@ -1,12 +1,19 @@
 ﻿<Window x:Class="BitfinexApp.Client.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BitfinexApp.Client"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Ticker and Trades" Height="650" Width="700">
+    <Grid Margin="30">
+        <StackPanel>
+            <Button Content="Получить Ticker" Click="GetTickerButton_Click" Margin="0,10,0,0"/>
+            <TextBlock x:Name="TickerOutput" Text="Здесь отобразится информация о тикере" Margin="0,0,0,20"/>
 
+            <Button Content="Получить трейды" Click="GetTradesButton_Click" Margin="0,10,0,0"/>
+            <DataGrid ItemsSource="{Binding Trades}" x:Name="TradesDataGrid" AutoGenerateColumns="True" Height="200"/>
+
+            <Button Content="Получить Свечи" Click="GetCandlesButton_Click" Margin="0,10,0,0"/>
+            <DataGrid ItemsSource="{Binding Candles}" x:Name="CandlesDataGrid" AutoGenerateColumns="True" Height="200"/>
+        </StackPanel>
     </Grid>
+
+      
 </Window>
