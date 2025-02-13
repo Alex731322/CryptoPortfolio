@@ -9,6 +9,7 @@ namespace BitfinexConnector.Converters
         private readonly string _pair;
 
         public CandleConverter(string pair) => _pair = pair;
+
         public override Candle ReadJson(JsonReader reader, Type objectType, Candle existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
             JArray arr = JArray.Load(reader);

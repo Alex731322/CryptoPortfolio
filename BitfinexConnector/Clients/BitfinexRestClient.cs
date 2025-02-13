@@ -18,7 +18,6 @@ namespace BitfinexConnector.Clients
                 BaseAddress = _uri
             };
         }
-
         public async Task<Ticker> GetTickerAsync(string symbol)
         {
             if (string.IsNullOrEmpty(symbol))
@@ -26,8 +25,10 @@ namespace BitfinexConnector.Clients
             
             var endpoint = $"ticker/t{symbol}";
             var response = await _httpClient.GetAsync(endpoint);
-            response.EnsureSuccessStatusCode();
-             
+            if(!response.IsSuccessStatusCode)
+                throw new HttpRequestException($"Failed to get ticker");
+            
+
             var jsonData = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<Ticker>(jsonData, new TickerConverter());
         }
@@ -43,7 +44,8 @@ namespace BitfinexConnector.Clients
             var endpoint = $"trades/t{pair}/hist?limit={maxCount}";
 
             var response = await _httpClient.GetAsync(endpoint);
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                throw new HttpRequestException($"Failed to get trades");
 
             var jsonData = await response.Content.ReadAsStringAsync();
 
@@ -65,7 +67,8 @@ namespace BitfinexConnector.Clients
                 endpoint.Append($"&end={to.Value.ToUnixTimeMilliseconds()}");
 
             var response = await _httpClient.GetAsync(endpoint.ToString());
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                throw new HttpRequestException($"Failed to get Candles");
 
             var jsonData = await response.Content.ReadAsStringAsync();
 

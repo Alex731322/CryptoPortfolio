@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitfinexConnector", "BitfinexConnector\BitfinexConnector.csproj", "{4799F429-E28B-4ABC-9F8D-BC21EC7B35B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitfinexApp.Client", "BitfinexApp.Client\BitfinexApp.Client.csproj", "{A86A8D0A-34EC-4F9F-A2BA-5BA8F9BB70CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitfinexApp.Client", "BitfinexApp.Client\BitfinexApp.Client.csproj", "{A86A8D0A-34EC-4F9F-A2BA-5BA8F9BB70CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitFinexConnector.Tests", "BitFinexTestProject\BitFinexConnector.Tests.csproj", "{73E74C44-186A-4ECF-9827-6761A1293ED6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A86A8D0A-34EC-4F9F-A2BA-5BA8F9BB70CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A86A8D0A-34EC-4F9F-A2BA-5BA8F9BB70CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A86A8D0A-34EC-4F9F-A2BA-5BA8F9BB70CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E74C44-186A-4ECF-9827-6761A1293ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E74C44-186A-4ECF-9827-6761A1293ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E74C44-186A-4ECF-9827-6761A1293ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E74C44-186A-4ECF-9827-6761A1293ED6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

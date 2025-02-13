@@ -1,14 +1,15 @@
-﻿using BitfinexConnector.Services;
+﻿using BitfinexConnector.Processors;
 using System.Net.WebSockets;
 using System.Text;
 
 public class BitfinexWebSocketClient : IDisposable
 {
     private readonly ClientWebSocket _clientWebSocket = new();
-    private readonly Uri _uri;
     private readonly CancellationTokenSource _cancellationTokenSource = new();
-    private readonly BitfinexMessageService _bitfinexMessageService;
-    public BitfinexWebSocketClient(BitfinexMessageService bitfinexMessageService)
+    private readonly BitfinexMessageProcessor _bitfinexMessageService;
+    private readonly Uri _uri;
+
+    public BitfinexWebSocketClient(BitfinexMessageProcessor bitfinexMessageService)
     {
         _uri = new("wss://api-pub.bitfinex.com/ws/2");
         _bitfinexMessageService = bitfinexMessageService;

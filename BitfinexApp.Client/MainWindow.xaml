@@ -1,19 +1,23 @@
 ﻿<Window x:Class="BitfinexApp.Client.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Ticker and Trades" Height="650" Width="700">
+        Title="Ticker, Trades, and Portfolio" Height="800" Width="800">
     <Grid Margin="30">
         <StackPanel>
-            <Button Content="Получить Ticker" Click="GetTickerButton_Click" Margin="0,10,0,0"/>
-            <TextBlock x:Name="TickerOutput" Text="Здесь отобразится информация о тикере" Margin="0,0,0,20"/>
+            <TextBlock Text="{Binding TickerInfo}" Margin="0,0,0,20"/>
+            <DataGrid ItemsSource="{Binding Trades}" x:Name="TradesDataGrid" AutoGenerateColumns="True" Height="200" Margin="0,0,0,20" Width="650"/>
+            <DataGrid ItemsSource="{Binding Candles}" x:Name="CandlesDataGrid" AutoGenerateColumns="True" Height="200" Margin="0,0,0,20" Width="650"/>
 
-            <Button Content="Получить трейды" Click="GetTradesButton_Click" Margin="0,10,0,0"/>
-            <DataGrid ItemsSource="{Binding Trades}" x:Name="TradesDataGrid" AutoGenerateColumns="True" Height="200"/>
-
-            <Button Content="Получить Свечи" Click="GetCandlesButton_Click" Margin="0,10,0,0"/>
-            <DataGrid ItemsSource="{Binding Candles}" x:Name="CandlesDataGrid" AutoGenerateColumns="True" Height="200"/>
+            <DataGrid ItemsSource="{Binding PortfolioBalances}" 
+                      x:Name="PortfolioDataGrid" 
+                      AutoGenerateColumns="False" 
+                      Height="200" 
+                      Width="650">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Currency" Binding="{Binding Currency}" Width="*"/>
+                    <DataGridTextColumn Header="Balance" Binding="{Binding Balance, StringFormat=N2}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
-
-      
 </Window>

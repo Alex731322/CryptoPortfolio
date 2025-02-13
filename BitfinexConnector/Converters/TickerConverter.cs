@@ -29,7 +29,4 @@ namespace BitfinexConnector.Converters
             throw new NotImplementedException();
         }
     }
-
-
-    
 }
